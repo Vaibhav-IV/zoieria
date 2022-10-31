@@ -1,0 +1,22 @@
+<app-carousel></app-carousel>
+
+<div class="main-content">
+    <!-- doing it on row -->
+    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+        <!-- 16px is gap btn the two cards and grid is assuring that it will be in grid mode -->
+        <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="33%" *ngFor="let num of [1,2,3,4,5,6,7,8,9]">
+            <!-- here 50% is saying there will be 2 cards on a page -->
+            <mat-card class="card-wrapper">
+                <img class="card-image" mat-card-image  src="../../../assets/img/flower.jpg" alt="Photo of a Shiba Inu">
+                <mat-card-content class="description">
+                    <p> {{num}}
+                        shfifbiuhneofmaoesnfkasd vinasv iuse fkjashfoa sejfhao vianusfia sioeufhias dvasoivn
+                    </p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
+
+
+<router-outlet></router-outlet>
