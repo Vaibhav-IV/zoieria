@@ -1,5 +1,6 @@
-export interface Product{
-    id: number;
-    name: string;
-    description: string
+export class Product{
+    id?: any;
+    title?: string;
+    description?: string;
+    cost?:Number;
 }

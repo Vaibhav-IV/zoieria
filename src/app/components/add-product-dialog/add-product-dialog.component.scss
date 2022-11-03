@@ -1,0 +1,30 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+::ng-deep mat-dialog-container {
+  background-color:rgb(208, 247, 149)  !important;
+}
+
+mat-input{
+  color: black;
+}
+
+label{
+  color: black;
+}
+
+::ng-deep button{
+  color: aqua;
+  background-color: black;
+}
+
+.text{
+  color: black;
+}

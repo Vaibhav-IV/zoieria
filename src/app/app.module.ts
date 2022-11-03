@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule } from '@angular/forms';
+
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
@@ -22,6 +24,10 @@ import { HomeComponent } from './components/home/home.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
 
 import { MouseEnterLeaveDebounceDirective } from '../app/directives/mouse-enter-leave-debounce.directive';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
@@ -29,6 +35,10 @@ import { HeaderComponent } from './components/header/header.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { ProductPageComponent } from './components/product-page/product-page.component';
 import { AdminProductsComponent } from './components/admin-products/admin-products.component';
+import { AddProductDialogComponent } from './components/add-product-dialog/add-product-dialog.component';
+import { ViewProductComponent } from './components/view-product/view-product.component';
+import { DeleteConfirmDialogComponent } from './components/delete-confirm-dialog/delete-confirm-dialog.component';
+
 
 
 
@@ -41,7 +51,10 @@ import { AdminProductsComponent } from './components/admin-products/admin-produc
     HeaderComponent,
     CarouselComponent,
     ProductPageComponent,
-    AdminProductsComponent
+    AdminProductsComponent,
+    AddProductDialogComponent,
+    ViewProductComponent,
+    DeleteConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +62,7 @@ import { AdminProductsComponent } from './components/admin-products/admin-produc
     AppRoutingModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
+    FormsModule,
     HttpClientModule,
     MatButtonModule,
     MatDividerModule,
@@ -62,7 +76,11 @@ import { AdminProductsComponent } from './components/admin-products/admin-produc
     MatFormFieldModule,
     MatExpansionModule,
     MatMenuModule,
-    MatListModule
+    MatListModule,
+    MatDialogModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

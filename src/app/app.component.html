@@ -1,5 +1,5 @@
-<mat-toolbar>
-    <button mat-icon-button *ngIf="sidenav.mode==='side'" (click)="sidenav.toggle()">
+<mat-toolbar class="con">
+    <button class="menu-btn" mat-icon-button *ngIf="sidenav.mode==='side'" (click)="sidenav.toggle()">
         <mat-icon *ngIf="!sidenav.opened">
             menu
         </mat-icon>
@@ -7,7 +7,12 @@
             close
         </mat-icon>
     </button>
-    header
+
+     <div class="header-btn">
+    <img class="logo-image" routerLink="/"src="../assets/img/logo.jpg" alt="logo">
+    </div>
+
+   
     
 </mat-toolbar>
 <app-header></app-header>

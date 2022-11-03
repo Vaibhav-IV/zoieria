@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { AppComponent } from 'src/app/app.component';
+import { Component, OnInit ,ViewChild} from '@angular/core';
 
 
 @Component({
@@ -9,11 +8,8 @@ import { AppComponent } from 'src/app/app.component';
 })
 export class HeaderComponent implements OnInit {
 
-  showData!: boolean
 
-  constructor() { }
 
   ngOnInit(): void {
-    this.showData = false
   }
 }
