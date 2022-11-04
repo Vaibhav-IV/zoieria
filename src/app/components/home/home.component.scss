@@ -15,7 +15,6 @@
 }
 
 .mat-card{
-    //background: #134611 ;
     box-shadow: none !important;
     background: transparent;
 }
@@ -24,3 +23,27 @@
     color: black;
 }
 
+.sale-tag{
+    background-color: rgb(222, 18, 18);
+    width: 55px;
+    height: 25px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border-radius: 6px;
+}
+
+.cart-btn{
+    width: 80px;
+    position: absolute;
+    top: 290px;  //233 for on edge
+    right: 0px;
+}
+
+.cart-btn{
+    display: none;
+}
+
+.card-wrapper:hover  .cart-btn {
+    display: block;
+}

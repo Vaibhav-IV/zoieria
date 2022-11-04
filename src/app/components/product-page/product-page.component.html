@@ -1,1 +1,43 @@
-<p>product-page works!</p>
+<!-- <div *ngFor=" let product of products | keyvalue">
+<h1 style="color: black;">{{product.key}}:{{product.value}}</h1>
+
+{{product.value}}
+
+</div> -->
+
+
+
+<div class="row">
+
+    <mat-card *ngIf="currentProduct.id" class="product-card col-sm-12 m-10">
+        <!-- <mat-card-title>{{currentProduct.title}}</mat-card-title> -->
+        <mat-card-content>
+
+            <img src="../../../assets/img/flower.jpg" class="product-img" alt="">
+
+            
+        </mat-card-content>
+        <mat-card-actions>
+           
+        </mat-card-actions>
+    </mat-card>
+
+    <mat-card *ngIf="currentProduct.id" class="product-card col-sm-12">
+        <mat-card-title>{{currentProduct.title}}</mat-card-title>
+        <mat-card-subtitle class="text">{{currentProduct.id}}</mat-card-subtitle>
+        <mat-card-content>
+            <p>Description: {{currentProduct.description}}</p>
+            <p> cost: {{currentProduct.cost}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button style="background: rgb(141, 237, 117)" class="badge badge-warning m-2 mr-2">
+                Save for Later
+            </button>
+            <button mat-button style="background: rgb(237, 117, 117)" class="badge badge-danger m-2 mr-2">
+                Add to cart
+            </button>
+
+
+        </mat-card-actions>
+    </mat-card>
+</div>

@@ -4,17 +4,31 @@
     <!-- doing it on row -->
     <div fxLayout="row wrap" fxLayoutGap="16px grid">
         <!-- 16px is gap btn the two cards and grid is assuring that it will be in grid mode -->
-        <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="33%" *ngFor="let product of products">
+        <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="33%"
+            *ngFor="let product of products; let i = index">
             <!-- here 50% is saying there will be 2 cards on a page -->
             <mat-card class="card-wrapper">
-                <img class="card-image" mat-card-image  src="../../../assets/img/flower.jpg" alt="Photo of a Shiba Inu">
+
+                <img [class.active]='i == currentIndex' routerLink="/home/{{product.id}}"
+                    (click)="setActiveProduct(product,i)" class="card-image" mat-card-image
+                    src="../../../assets/img/flower.jpg" alt="Product Photo">
+
+
+                <div class="sale-tag pl-2 pt-1">
+                    SALE
+                </div>
                 <mat-card-content class="description">
-                    <p class="prd-text"> {{product.id}}
-                        
+                    <p [class.active]='i == currentIndex' routerLink="/home/{{product.id}}"
+                        (click)="setActiveProduct(product,i)" class="prd-text"> {{product.cost}}
+
                     </p>
-                    <h3 class="prd-text">
-                        {{product.title}}
-                    </h3>
+                        <h3 class="prd-text" style="text-align:left;float:left;">{{product.title}}</h3>
+                        <!-- <s style="text-align:right;float:right; margin-top: 4px;"> {{product.cost}}</s> -->
+                
+                    <div class="cart-btn"><button mat-button style="background-color: #c68e5b;">Add ❤</button></div>
+
+
+                    <!-- <button class="cart-btn" mat-button style="background-color: #c68e5b;">Add ❤</button> -->
                 </mat-card-content>
             </mat-card>
         </div>

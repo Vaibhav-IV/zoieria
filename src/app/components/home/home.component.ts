@@ -12,6 +12,9 @@ export class HomeComponent implements OnInit {
   constructor(private productService: AdminProductsService) { }
 
   products?: Product[]
+  currentProduct: Product = {}
+  currentIndex = -1
+  title = ''
 
   ngOnInit(): void {
     this.retrieveProducts()
@@ -26,6 +29,19 @@ export class HomeComponent implements OnInit {
       },
       error: (e) => console.error(e)
     })
+  }
+
+  
+  refreshList(): void {
+    this.retrieveProducts();
+    this.currentProduct = {}
+    this.currentIndex = -1
+  }
+
+  setActiveProduct(product: Product, index: number): void {
+    this.currentIndex = index
+    this.currentProduct = product
+    console.log(index,product);
   }
 
 

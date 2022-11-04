@@ -1,46 +1,34 @@
-ngb-carousel{
+ngb-carousel {
     width: 100%;
     margin: auto;
     //height: 50px;  //changes the ht of symbols
 }
-ngb-carousel img{
-    width: 100%;
-    outline: none; 
-    overflow: hidden;
-  }
 
-.carousel-item{
+ngb-carousel img {
+    width: 100%;
+    outline: none;
+    overflow: hidden;
+}
+
+.carousel-item {
     display: flex !important;
     opacity: 0;
     visibility: hidden;
     //transition: opacity 1.2s ease-in-out, visibility 0.5s;
     z-index: -1;
-    
+
 }
 
-.carousel-item.active{
-    opacity: 1;
-    visibility: visible;
-    z-index: 10;
-}
-.carousel-control-prev {
-     z-index: 20;
-     color: #96E072;
-}
-
-.carousel-control-next {
-     z-index: 20;
-}
-.carousel-indicators{
-    z-index: 20;
-}
-
-.carousel-caption{
+.carousel-caption {
     color: #96E072;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-@media(max-width:540px){
+@media(max-width:540px) {
     #carouselContainer {
-        display:none !important;
+        display: none !important;
     }
-  }
+}

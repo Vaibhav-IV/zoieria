@@ -28,6 +28,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
+import {MatGridListModule} from '@angular/material/grid-list';
+
 
 import { MouseEnterLeaveDebounceDirective } from '../app/directives/mouse-enter-leave-debounce.directive';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
@@ -80,7 +82,8 @@ import { DeleteConfirmDialogComponent } from './components/delete-confirm-dialog
     MatDialogModule,
     MatSelectModule,
     MatOptionModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

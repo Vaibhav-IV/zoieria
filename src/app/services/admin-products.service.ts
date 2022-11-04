@@ -5,7 +5,7 @@ import { Observable, tap, catchError } from 'rxjs'
 import { Product } from '../models/Product';
 import { ErrorHandlerService } from './error-handler.service';
 
-const baseUrl = "http://localhost:3000/admin/products/"
+const baseUrl = "http://localhost:3000/admin/products"
 
 @Injectable({
   providedIn: 'root'
@@ -57,11 +57,20 @@ export class AdminProductsService {
 
   get(id: any): Observable<any> {
     return this.http.get(`${baseUrl}/${id}`)
-    .pipe(
-      tap((_) => console.log("fetched a product")),
-      catchError(
-        this.errorHandlerService.handleError<Product[]>("Fetching a single product error in services", [])
-      ));
+      .pipe(
+        tap((_) => console.log("fetched a product")),
+        catchError(
+          this.errorHandlerService.handleError<Product[]>("Fetching a single product error in services", [])
+        ));
+  }
+
+  findByTitle(id: any): Observable<Product[]> {
+    return this.http.get<Product[]>(`${baseUrl}/${id}`)         //`${baseUrl}?title=${title}`
+      .pipe(
+        tap((_) => console.log("fetched searched product")),
+        catchError(
+          this.errorHandlerService.handleError<Product[]>("Fetch searched error in services", [])
+        ));
   }
 
   create(data: any): Observable<any> {
@@ -80,8 +89,6 @@ export class AdminProductsService {
     return this.http.delete(baseUrl);
   }
 
-  findByTitle(title: any): Observable<Product[]> {
-    return this.http.get<Product[]>(`${baseUrl}?title=${title}`);
-  }
+
 
 }
