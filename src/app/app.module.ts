@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
 
 
 import { MatButtonModule } from '@angular/material/button';
@@ -29,6 +29,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { MatRadioModule } from '@angular/material/radio'
+
 
 
 import { MouseEnterLeaveDebounceDirective } from '../app/directives/mouse-enter-leave-debounce.directive';
@@ -40,6 +42,9 @@ import { AdminProductsComponent } from './components/admin-products/admin-produc
 import { AddProductDialogComponent } from './components/add-product-dialog/add-product-dialog.component';
 import { ViewProductComponent } from './components/view-product/view-product.component';
 import { DeleteConfirmDialogComponent } from './components/delete-confirm-dialog/delete-confirm-dialog.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { InterceptorServiceService } from './services/interceptor-service.service';
 
 
 
@@ -56,7 +61,9 @@ import { DeleteConfirmDialogComponent } from './components/delete-confirm-dialog
     AdminProductsComponent,
     AddProductDialogComponent,
     ViewProductComponent,
-    DeleteConfirmDialogComponent
+    DeleteConfirmDialogComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -65,6 +72,7 @@ import { DeleteConfirmDialogComponent } from './components/delete-confirm-dialog
     BrowserAnimationsModule,
     FlexLayoutModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     MatButtonModule,
     MatDividerModule,
@@ -83,9 +91,14 @@ import { DeleteConfirmDialogComponent } from './components/delete-confirm-dialog
     MatSelectModule,
     MatOptionModule,
     MatSnackBarModule,
-    MatGridListModule
+    MatGridListModule,
+    MatRadioModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: InterceptorServiceService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

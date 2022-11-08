@@ -17,6 +17,8 @@ export class AppComponent {
 
   }
 
+nammee =  localStorage.getItem('userData');
+
   ngAfterViewInit() {
     this.observer.observe(['(max-width:760px)']).subscribe((res) => {
       if (res.matches) { //this means we are on a larger screen

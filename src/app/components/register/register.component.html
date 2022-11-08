@@ -1,0 +1,43 @@
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <mat-card fxFlex="25">
+        <mat-toolbar color="primary">Signup Page</mat-toolbar>
+        <form fxLayoutAlign="stretch" fxLayout="column" class="login-form" [formGroup]="registerFormGroup" (ngSubmit)="registerProcess()">
+          <div  fxLayout="row">
+            <mat-form-field>
+              <input matInput placeholder="First Name" formControlName="first_name">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Last Name" formControlName="last_name">
+            </mat-form-field>
+          </div>  
+
+            <mat-radio-group formControlName="gender">
+              <mat-radio-button checked=true  value="Male">  Male  </mat-radio-button>
+              <mat-radio-button  value="Female">  Female  </mat-radio-button>
+              <mat-radio-button  value="Other">  Other  </mat-radio-button>
+            </mat-radio-group>
+  
+            <mat-form-field>
+                <input matInput placeholder="Contact Number" formControlName="contact_number">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Address" formControlName="address">
+              </mat-form-field>
+              <div fxLayout="row">
+                <mat-form-field>
+                  <input matInput placeholder="Email" formControlName="email_id">
+                </mat-form-field>
+            
+              <mat-form-field>
+                  <input matInput type="password" placeholder="Password" formControlName="password">
+              </mat-form-field>
+
+              </div>
+           
+
+            <button mat-stroked-button color="primary" type="submit">Register</button>
+          </form>
+    </mat-card>
+</div>
