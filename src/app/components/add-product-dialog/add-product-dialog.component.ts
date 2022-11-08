@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 
@@ -13,58 +14,63 @@ import { AdminProductsComponent } from '../admin-products/admin-products.compone
 })
 export class AddProductDialogComponent implements OnInit {
 
-  constructor(private productService: AdminProductsService) {}
+  constructor(private productService: AdminProductsService,
+    private http: HttpClient) { }
 
   ngOnInit(): void {
     //this.retrieveProducts()
   }
 
   product: Product = {
-    title:'',
-    description:'',
-    cost: 10
+    title: '',
+    description: '',
+    cost: 10,
+    //image: '',
+    published: false
   };
-  submitted =  false
+  submitted = false
 
-  saveProduct():void{
+  /* file upload */
+  /* Variabe to store file data */
+  filedata: any;
+  /* File onchange event */
+  fileEvent(e: any) {
+    this.filedata = e.target.files[0];
+    console.log(this.filedata);
+
+  }
+
+  saveProduct(): void {
     const data = {
       title: this.product.title,
-      description: this.product.description ,
-      cost: this.product.cost
-    };
-
+      description: this.product.description,
+      cost: this.product.cost,
+      published: this.product.published
+      //image: this.filedata
+    }
+    
     this.productService.create(data)
-    .subscribe({
-      next:(res)=>{
-        console.log(res);
-        this.submitted = true;
-      },
-      // complete:() =>{
-      //   this.retrieveProducts()
-      // },
-      error: (e) => console.error(e)
-    })
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+          this.submitted = true;
+        },
+        // complete:() =>{
+        //   this.retrieveProducts()
+        // },
+        error: (e) => console.error(e)
+      })
   }
 
-  newProduct():void{
+  newProduct(): void {
     this.submitted = false;
     this.product = {
-      title:'',
-      description:'',
-      cost: 10
+      title: '',
+      description: '',
+      cost: 10,
+      published: false
     };
   }
 
-  // products?: Product[]
-  // retrieveProducts():void{
-  //   this.productService.getAll()
-  //   .subscribe({
-  //     next:(data) =>{
-  //       this.products = data
-  //       console.log(this.products);
-  //     },
-  //     error: (e) => console.error(e)
-  //   })
-  // }
 
 }

@@ -64,14 +64,25 @@ export class AdminProductsService {
         ));
   }
 
-  findByTitle(id: any): Observable<Product[]> {
+  findById(id: any): Observable<Product[]> {
     return this.http.get<Product[]>(`${baseUrl}/${id}`)         //`${baseUrl}?title=${title}`
       .pipe(
-        tap((_) => console.log("fetched searched product")),
+        tap((_) => console.log("fetched searched product by id")),
         catchError(
-          this.errorHandlerService.handleError<Product[]>("Fetch searched error in services", [])
+          this.errorHandlerService.handleError<Product[]>("Fetch searched error in services by id", [])
         ));
   }
+
+  findByTitle(title: any): Observable<Product[]> {
+    return this.http.get<Product[]>(`${baseUrl}?title=${title}`)         //`${baseUrl}?title=${title}`
+      .pipe(
+        tap((_) => console.log("fetched searched product by title")),
+        catchError(
+          this.errorHandlerService.handleError<Product[]>("Fetch searched error in services by title", [])
+        ));
+  }
+
+
 
   create(data: any): Observable<any> {
     return this.http.post(baseUrl, data)

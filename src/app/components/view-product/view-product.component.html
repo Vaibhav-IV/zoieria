@@ -5,6 +5,7 @@
         <mat-card-content>
             <p>Description: {{currentProduct.description}}</p>
             <p> cost: {{currentProduct.cost}}</p>
+            <p>Active: {{currentProduct.published}}</p>
         </mat-card-content>
         <mat-card-actions>
             <a routerLink="/{{ currentProduct.id }}"><button mat-button style="background: rgb(141, 237, 117)" class="badge badge-warning m-2 mr-2">
@@ -38,12 +39,17 @@
                 <input type="text" class="form-control" id="description" [(ngModel)]="currentProduct.description"
                     name="description" />
             </div>
+
+            <div class="form-group col-md-4">
+                <label for="description" class="mr-3">Activity</label>
+                <mat-slide-toggle id="published" name="published" [(ngModel)]="currentProduct.published"></mat-slide-toggle>
+            </div>
         </form>
         <button mat-button style="background: rgb(237, 117, 117)" class="mr-2 col-md-1" (click)="deleteProduct()">
             Delete
         </button>
         <p>{{ message }}</p>
-        <button type="submit" mat-button style="background: rgb(237, 117, 117)" class="text mb-2 col-md-1" (click)="updateProduct()">
+        <button type="submit" mat-button style="background: rgb(141, 237, 117)" class="text mb-2 col-md-1" (click)="updateProduct()">
             Update
         </button>
         <p>{{ message }}</p>

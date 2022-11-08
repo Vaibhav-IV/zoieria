@@ -80,7 +80,7 @@ export class AdminProductsComponent implements OnInit {
     this.currentProduct = {}
     //console.log(this.title);
     
-    this.productService.findByTitle(this.title)
+    this.productService.findById(this.title)
       .subscribe({
         next: (data) => {
           this.searchedProduct = data
@@ -89,6 +89,22 @@ export class AdminProductsComponent implements OnInit {
         error: (e) => console.error(e)
       })
   }
+
+  searchByTitle(): void {
+    this.currentIndex = -1
+    this.currentProduct = {}
+
+    this.productService.findByTitle(this.title)
+    .subscribe({
+      next: (data) => {
+        console.log(this.title);
+        
+        this.searchedProduct = data
+        console.log(data);
+      },
+      error: (e) => console.error(e)
+    })
+}
 
   openDialog() {
     const dialogRef = this.dialog.open(AddProductDialogComponent, {

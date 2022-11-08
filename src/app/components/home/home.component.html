@@ -5,13 +5,13 @@
     <div fxLayout="row wrap" fxLayoutGap="16px grid">
         <!-- 16px is gap btn the two cards and grid is assuring that it will be in grid mode -->
         <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="33%"
-            *ngFor="let product of products; let i = index">
+            *ngFor="let product of products; let i = index" >
             <!-- here 50% is saying there will be 2 cards on a page -->
-            <mat-card class="card-wrapper">
+            <mat-card *ngIf="product.published" class="card-wrapper">
 
                 <img [class.active]='i == currentIndex' routerLink="/home/{{product.id}}"
                     (click)="setActiveProduct(product,i)" class="card-image" mat-card-image
-                    src="../../../assets/img/flower.jpg" alt="Product Photo">
+                    src="./../../../assets/img/flower2.jpg" alt="Product Photo">
 
 
                 <div class="sale-tag pl-2 pt-1">

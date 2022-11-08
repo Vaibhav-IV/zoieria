@@ -3,4 +3,6 @@ export class Product{
     title?: string;
     description?: string;
     cost?:Number;
+    image?:string;
+    published?:boolean;
 }

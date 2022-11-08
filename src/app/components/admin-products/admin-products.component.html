@@ -15,6 +15,9 @@
                 <button class="text ml-3" mat-button style="background: rgb(141, 237, 117)" (click)="searchTitle()">
                     Search
                 </button>
+                <button class="text ml-3" mat-button style="background: rgb(141, 237, 117)" (click)="searchByTitle()">
+                    Title
+                </button>
             </div>
         </div>
     </div>
@@ -38,6 +41,7 @@
                     <th scope="col">Title</th>
                     <th scope="col">Description</th>
                     <th scope="col">Cost</th>
+                    <th scope="col">Active</th>
                 </tr>
             </thead>
             <tbody *ngFor="let product of products; let i = index">
@@ -46,6 +50,7 @@
                     <td [class.active]='i == currentIndex' (click)="setActiveProduct(product,i)">{{product.title}}</td>
                     <td [class.active]='i == currentIndex' (click)="setActiveProduct(product,i)">{{product.description}}</td>
                     <td [class.active]='i == currentIndex' (click)="setActiveProduct(product,i)">{{product.cost}}</td>
+                    <td [class.active]='i == currentIndex' (click)="setActiveProduct(product,i)">{{product.published}}</td>
                 </tr>
             </tbody>
         </table>
@@ -58,6 +63,7 @@
                     <th scope="col">Title</th>
                     <th scope="col">Description</th>
                     <th scope="col">Cost</th>
+                    <th scope="col">Active</th>
                 </tr>
             </thead>
             <tbody >
@@ -66,6 +72,7 @@
                     <td>{{searchedProduct.title}}</td>
                     <td>{{searchedProduct.description}}</td>
                     <td>{{searchedProduct.cost}}</td>
+                    <td>{{searchedProduct.published}}</td>
                 </tr>
             </tbody>
         </table>
